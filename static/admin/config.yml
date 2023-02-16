@@ -13,12 +13,18 @@ media_folder: static/img
 public_folder: /img
 publish_mode: editorial_workflow
 
+i18n:
+  structure: multiple_folders
+  locales: [de, en, it]
+  default_locale: en
+
 collections:
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    i18n: true
     fields:
       - {
           label: "Template Key",
@@ -26,7 +32,7 @@ collections:
           widget: "hidden",
           default: "blog-post",
         }
-      - { label: "Title", name: "title", widget: "i18n-string" }
+      - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
